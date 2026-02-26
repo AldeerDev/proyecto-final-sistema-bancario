@@ -10,11 +10,11 @@ public class Money {
 	private final TipoMoneda moneda;
 
 	public Money(BigDecimal cantidad, TipoMoneda moneda) {
-		if (cantidad.equals(null)) {
+		if (cantidad == null) {
 			throw new RuntimeException("Cantidad no puede ser nula");
 		}
 		
-		if(moneda.equals(null)) {
+		if(moneda == null) {
 			throw new RuntimeException("moneda no puede ser nula");
 		}
 		this.cantidad = cantidad;
