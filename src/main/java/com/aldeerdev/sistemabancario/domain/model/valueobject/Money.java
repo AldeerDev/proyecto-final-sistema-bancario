@@ -19,8 +19,18 @@ public class Money {
 		if (moneda == null) {
 			throw new InvalidMoneyException("moneda no puede ser nula");
 		}
+
 		this.cantidad = cantidad;
 		this.moneda = moneda;
+	}
+	
+	public BigDecimal sumar(BigDecimal otro) {
+		
+		if (otro == null) {
+			throw new InvalidMoneyException("otro no puede ser nulo");
+		}
+		
+		return cantidad.add(otro);
 	}
 
 }
