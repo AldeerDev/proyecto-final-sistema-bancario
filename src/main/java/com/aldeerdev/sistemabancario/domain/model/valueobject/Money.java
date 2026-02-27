@@ -1,6 +1,7 @@
 package com.aldeerdev.sistemabancario.domain.model.valueobject;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 import com.aldeerdev.sistemabancario.domain.exceptions.InvalidMoneyException;
@@ -21,7 +22,8 @@ public class Money {
 			throw new InvalidMoneyException("moneda no puede ser nula");
 		}
 
-		this.cantidad = cantidad;
+		// normaliza la escala de cantidad
+		this.cantidad = cantidad.setScale(2, RoundingMode.HALF_EVEN);
 		this.moneda = moneda;
 	}
 
