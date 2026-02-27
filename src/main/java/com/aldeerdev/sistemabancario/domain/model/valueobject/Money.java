@@ -7,7 +7,7 @@ import java.util.Objects;
 import com.aldeerdev.sistemabancario.domain.exceptions.InvalidMoneyException;
 import com.aldeerdev.sistemabancario.domain.model.enums.TipoMoneda;
 
-public class Money {
+public final class Money {
 
 	private final BigDecimal cantidad;
 	private final TipoMoneda moneda;
