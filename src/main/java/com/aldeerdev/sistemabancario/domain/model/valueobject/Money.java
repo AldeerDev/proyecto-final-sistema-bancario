@@ -21,6 +21,10 @@ public final class Money {
 		if (moneda == null) {
 			throw new InvalidMoneyException("moneda no puede ser nula");
 		}
+		
+		if (cantidad.signum() < 0) {
+			throw new InvalidMoneyException("cantidad no puede ser negativa");
+		}
 
 		// normaliza la escala de cantidad
 		this.cantidad = cantidad.setScale(2, RoundingMode.HALF_EVEN);
