@@ -1,6 +1,7 @@
 package com.aldeerdev.sistemabancario.domain.model.valueobject;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import com.aldeerdev.sistemabancario.domain.exceptions.InvalidMoneyException;
 import com.aldeerdev.sistemabancario.domain.model.enums.TipoMoneda;
@@ -35,6 +36,23 @@ public class Money {
 		}
 
 		return new Money(this.cantidad.add(otro.cantidad), otro.moneda);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cantidad, moneda);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Money other = (Money) obj;
+		return Objects.equals(cantidad, other.cantidad) && moneda == other.moneda;
 	}
 
 }
