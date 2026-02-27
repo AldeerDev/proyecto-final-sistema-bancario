@@ -4,3 +4,5 @@ bin/
 .settings/
 
 target/
+
+src/main/java/com/aldeerdev/sistemabancario/prueba/
