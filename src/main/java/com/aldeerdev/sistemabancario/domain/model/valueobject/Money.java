@@ -23,14 +23,18 @@ public class Money {
 		this.cantidad = cantidad;
 		this.moneda = moneda;
 	}
-	
-	public BigDecimal sumar(BigDecimal otro) {
-		
+
+	public Money sumar(Money otro) {
+
 		if (otro == null) {
 			throw new InvalidMoneyException("otro no puede ser nulo");
 		}
-		
-		return cantidad.add(otro);
+
+		if (moneda != otro.moneda) {
+			throw new InvalidMoneyException("No se pueden sumar monedas distintas.");
+		}
+
+		return new Money(this.cantidad.add(otro.cantidad), otro.moneda);
 	}
 
 }
