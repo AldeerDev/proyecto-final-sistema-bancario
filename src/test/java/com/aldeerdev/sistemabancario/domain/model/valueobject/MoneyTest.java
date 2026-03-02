@@ -32,4 +32,12 @@ class MoneyTest {
 		
 		assertThrows(InvalidMoneyException.class, () -> dinero.sumar(null));
 	}
+	
+	@Test
+	void testSumarMonedasDistintas() {
+		Money dineroARS = new Money(new BigDecimal("100"), TipoMoneda.ARS);
+		Money dineroUSD = new Money(new BigDecimal("100"), TipoMoneda.USD);
+		
+		assertThrows(InvalidMoneyException.class, () -> dineroARS.sumar(dineroUSD));
+	}
 }
