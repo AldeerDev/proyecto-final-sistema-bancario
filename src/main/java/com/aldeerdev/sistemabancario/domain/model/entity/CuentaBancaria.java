@@ -32,7 +32,9 @@ public abstract class CuentaBancaria {
 	}
 
 	public void mostrarInformacion() {
-
+		System.out.println("Cliente: " + cliente);
+		System.out.println("Nro. cuenta: " + numeroCuenta);
+		System.out.println("Saldo: " + saldo);
 	}
 
 	// Getters
