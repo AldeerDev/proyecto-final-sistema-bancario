@@ -21,7 +21,7 @@ public final class Money {
 		if (moneda == null) {
 			throw new InvalidMoneyException("moneda no puede ser nula");
 		}
-		
+
 		if (cantidad.signum() < 0) {
 			throw new InvalidMoneyException("cantidad no puede ser negativa");
 		}
@@ -42,6 +42,28 @@ public final class Money {
 		}
 
 		return new Money(this.cantidad.add(otro.cantidad), otro.moneda);
+	}
+
+	public Money restar(Money otro) {
+		// valida argumento nulo
+		if (otro == null)
+			throw new InvalidMoneyException("otro no puede ser nulo.");
+
+		// valida que las monedas sean iguales
+		if (this.moneda != otro.moneda)
+			throw new InvalidMoneyException("No puedes restar monedas distintas.");
+
+		return new Money(this.cantidad.subtract(otro.cantidad), this.moneda);
+	}
+
+	// Getters
+
+	public BigDecimal getCantidad() {
+		return cantidad;
+	}
+
+	public TipoMoneda getMoneda() {
+		return moneda;
 	}
 
 	@Override
