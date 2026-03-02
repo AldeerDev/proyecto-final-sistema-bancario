@@ -7,7 +7,7 @@ import com.aldeerdev.sistemabancario.domain.model.valueobject.Money;
 public abstract class CuentaBancaria {
 
 	private String numeroCuenta;
-	private String titular;
+	private Cliente cliente;
 	private Money saldo;
 
 	public abstract Money calcularInteres();
@@ -41,8 +41,8 @@ public abstract class CuentaBancaria {
 		return numeroCuenta;
 	}
 
-	public String getTitular() {
-		return titular;
+	public Cliente getTitular() {
+		return cliente;
 	}
 
 	public Money getSaldo() {
