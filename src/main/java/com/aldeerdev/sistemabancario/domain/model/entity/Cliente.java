@@ -19,6 +19,12 @@ public class Cliente {
 		this.documento = documento;
 		this.cuentas = new ArrayList<>();
 	}
+	
+	public void agregarCuenta(CuentaBancaria nuevaCuenta) {
+		this.cuentas.add(nuevaCuenta);
+	}
+	
+	// Getters
 
 	public String getNombre() {
 		return nombre;
