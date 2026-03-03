@@ -24,6 +24,12 @@ public class Cliente {
 		this.cuentas.add(nuevaCuenta);
 	}
 	
+	public void mostrarCuentas() {
+		for (CuentaBancaria cuenta : this.cuentas) {
+			cuenta.mostrarInformacion();
+		}
+	}
+	
 	// Getters
 
 	public String getNombre() {
