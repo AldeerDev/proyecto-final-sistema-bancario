@@ -55,6 +55,10 @@ public final class Money {
 
 		return new Money(this.cantidad.subtract(otro.cantidad), this.moneda);
 	}
+	
+	public Money multiplicar(BigDecimal multiplicador) {
+		return new Money(this.cantidad.multiply(multiplicador), this.moneda);
+	}
 
 	// Getters
 
@@ -64,6 +68,13 @@ public final class Money {
 
 	public TipoMoneda getMoneda() {
 		return moneda;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return cantidad.toPlainString() + " " + moneda;
 	}
 
 	@Override

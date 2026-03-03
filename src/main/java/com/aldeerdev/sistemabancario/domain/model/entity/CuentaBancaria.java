@@ -1,7 +1,9 @@
 package com.aldeerdev.sistemabancario.domain.model.entity;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
+import com.aldeerdev.sistemabancario.domain.model.enums.TipoMoneda;
 import com.aldeerdev.sistemabancario.domain.model.valueobject.Money;
 
 public abstract class CuentaBancaria {
@@ -9,6 +11,13 @@ public abstract class CuentaBancaria {
 	private String numeroCuenta;
 	private Cliente cliente;
 	private Money saldo;
+	
+	// Constructor
+	public CuentaBancaria(Cliente cliente) {
+		this.numeroCuenta = "0000";
+		this.cliente = cliente;
+		this.saldo = new Money(new BigDecimal("0"), TipoMoneda.ARS);
+	}
 
 	public abstract Money calcularInteres();
 
